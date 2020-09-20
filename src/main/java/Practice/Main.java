@@ -7,8 +7,22 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
-        registrationNewAccount();
-//        authorizationAccount();
+        regOrAuth();
+    }
+
+    public static void regOrAuth() throws SQLException {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("1 - Log in | 2 - Sign up");
+        switch (scanner.nextInt()) {
+            case 1:
+                authorizationAccount();
+                break;
+            case 2:
+                registrationNewAccount();
+                break;
+            default:
+                System.out.println("Incorrect command");
+        }
     }
 
     public static void registrationNewAccount() throws SQLException {
@@ -76,7 +90,7 @@ public class Main {
 
             while (resultSet.next()) {
                 if (resultSet.getInt("count") > 0) {
-                    System.out.println("Correct login");
+                    System.out.println("Successful authorization");
                     successfulAuthorization = true;
                 } else {
                     System.out.println("Invalid login or password, try again");
