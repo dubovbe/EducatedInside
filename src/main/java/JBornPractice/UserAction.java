@@ -1,4 +1,4 @@
-package Practice;
+package JBornPractice;
 
 import java.sql.*;
 import java.util.Scanner;
@@ -54,7 +54,7 @@ public class UserAction {
 
             PreparedStatement listOfBankAccountsStatement = connection.prepareStatement("select login, email, balance, currency, date\n" +
                     "from account\n" +
-                    "inner join bank_account ba on account.id = ba.user_id\n" +
+                    "inner join bank_account ba on account.id = ba.account_id\n" +
                     "where login = ?;");
             listOfBankAccountsStatement.setString(1, getUserLogin());
             ResultSet resultSet = listOfBankAccountsStatement.executeQuery();

@@ -1,4 +1,4 @@
-package Practice;
+package JBornPractice;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
